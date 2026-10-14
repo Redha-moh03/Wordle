@@ -46,7 +46,7 @@ function pickRAndomWord() {
 function putTheLetterIn(event) {
     for (let i = 0; i < playerLetter.length; i++) {
         if (playerLetter[i].textContent === '') {
-             playerLetter[i].textContent = event.target.textContent
+            playerLetter[i].textContent = event.target.textContent
             playerWord.push(event.target.textContent)
             return
         }
@@ -57,8 +57,9 @@ function putTheLetterIn(event) {
 
 
 function checkWord() {
-    if(playerWord.length < 5){
-       console.log('word too short')
+    
+    if (playerWord.length < 5) {
+        console.log('word too short')
         return
     }
 
@@ -77,10 +78,19 @@ function checkWord() {
     playerWord.splice(0, playerWord.length)
 }
 
-function deleteF (){
+function deleteF() {
+
+    if (playerWord.length > 0) {
+        playerWord.pop()
+
     
-    playerWord.pop()
-}
+    for (let i = playerLetter.length - 1; i >= 0; i--) {
+        if (playerLetter[i].textContent != '') {
+            playerLetter[i].textContent = ''
+            return
+        }
+    }
+}}
 /* EventListener */
 
 
@@ -90,4 +100,4 @@ for (let oneLetter of letterBTNEL) {
 
 enterButtonEl.addEventListener('click', checkWord)
 
-deleteBTNEl.addEventListener('click' , deleteF)
+deleteBTNEl.addEventListener('click', deleteF)
