@@ -1,0 +1,1 @@
+const diffucltyLevels = document.querySelector('#diffucltyLevel')
