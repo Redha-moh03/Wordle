@@ -78,8 +78,12 @@ function checkWord() {
 
         }
         else if (PickedWord.includes(playerWord[i].toLowerCase())) {
-            console.log('Letter in word but wrong position')
+            console.log(`${playerWord[i]} is in the word but not in the right position`)
 
+        }
+        else if (!PickedWord.includes(playerWord[i]))
+        {
+            console.log(`${playerWord[i]} is not in the word`)
         }
     }
 
