@@ -9,22 +9,25 @@ p {
     justify-content: space-around;
     align-items: center;
     text-align: center;
-    
     display: inline-block;
 }
 
 
-#gameBoard{
+#gameBoard {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    width:350px
-
+    width: 350px
 }
 
 
-#big-board{
+#big-board {
     display: flex;
     justify-content: center;
+
+}
+
+#lettersBTNS {
+    border-radius: 3px;
 
 }

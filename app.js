@@ -1,8 +1,8 @@
 /* cashed Elements */
 const diffucltyLevelsEL = document.querySelector('#diffucltyLevel')
-const letterBTNEL = document.querySelectorAll ('.EngKey')
+const letterBTNEL = document.querySelectorAll('.EngKey')
 const playerLetter = document.querySelectorAll('.word')
-
+const enterButtonEl = document.querySelector('#EngEnter')
 
 
 
@@ -11,7 +11,7 @@ const playerLetter = document.querySelectorAll('.word')
 
 
 /* constents */
-const randomWords = ['adore' , 'agree' , 'amuse' , 'ideal' ,'jolly' , 'greet' , 'magic' , 'happy' , 'lucky' , 'model' , 'peace']
+const randomWords = ['adore', 'agree', 'amuse', 'ideal', 'jolly', 'greet', 'magic', 'happy', 'lucky', 'model', 'peace']
 
 
 
@@ -20,7 +20,7 @@ const randomWords = ['adore' , 'agree' , 'amuse' , 'ideal' ,'jolly' , 'greet' , 
 
 
 /* variables */
-let PickedWord 
+let PickedWord
 let newLetter
 const playerWord = []
 
@@ -28,54 +28,58 @@ const playerWord = []
 
 
 /* functions */
-init() 
-function init (){
-  pickRAndomWord()
-  console.log(PickedWord)
+init()
+function init() {
+    pickRAndomWord()
+    console.log(PickedWord)
 }
 
-function runGame(event){
+function runGame() {
 
-putTheLetterIn(event)
+   
 
 
 }
-function pickRAndomWord(){
-   PickedWord = randomWords[Math.floor(Math.random() * 11)]
+function pickRAndomWord() {
+    PickedWord = randomWords[Math.floor(Math.random() * 11)]
 }
-function putTheLetterIn (event){
-   for (let i = 0 ;i <playerLetter.length ; i++)
-    {
-        if (playerLetter[i].textContent === '')
-            {
-           playerLetter[i].textContent = event.target.textContent
-           playerWord.push(event.target.textContent)
-           return
+function putTheLetterIn(event) {
+    for (let i = 0; i < playerLetter.length; i++) {
+        if (playerLetter[i].textContent === '') {
+            playerLetter[i].textContent = event.target.textContent
+            playerWord.push(event.target.textContent)
+            return
         }
-    } 
+    }
 
-    
+
 }
 
-console.log(playerLetter)
-function checkWord (){
-   for (let i = 0 ; i < 5 ; i++){
-    if (playerWord[i].toLowerCase() === PickedWord[i].toLowerCase()){
-        console.log('letter is right')
 
-    }
-    else if(PickedWord.includes(playerWord[i].toLowerCase())){
-        console.log('Letter in word but wrong position')
-    }
-   }
+function checkWord() {
 
-   playerWord.splice(0,playerWord.length)
+
+    for (let i = 0; i < 5; i++) {
+        if (playerWord[i].toLowerCase() === PickedWord[i]) {
+            console.log('letter is right')
+
+
+        }
+        else if (PickedWord.includes(playerWord[i].toLowerCase())) {
+            console.log('Letter in word but wrong position')
+
+        }
+    }
+
+    playerWord.splice(0, playerWord.length)
 }
 
 
 /* EventListener */
 
 
-for (let oneLetter of letterBTNEL){
-    oneLetter.addEventListener('click' , runGame )
+for (let oneLetter of letterBTNEL) {
+    oneLetter.addEventListener('click', putTheLetterIn)
 }
+
+enterButtonEl.addEventListener('click', checkWord)
