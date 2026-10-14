@@ -35,15 +35,17 @@ function init() {
 }
 
 function runGame(event) {
-
+    
     putTheLetterIn(event)
-
+     
 
 }
 function pickRAndomWord() {
     PickedWord = randomWords[Math.floor(Math.random() * 11)]
 }
 function putTheLetterIn(event) {
+    if (playerWord.length < 5)
+    {
     for (let i = 0; i < playerLetter.length; i++) {
         if (playerLetter[i].textContent === '') {
             playerLetter[i].textContent = event.target.textContent
@@ -51,7 +53,14 @@ function putTheLetterIn(event) {
             return
         }
     }
+    }
+    else
+    {
+        /* console.log(playerLetter)
+        console.log(playerWord) */
+        return 
 
+    }
 
 }
 
