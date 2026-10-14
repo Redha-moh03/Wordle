@@ -3,7 +3,7 @@ const diffucltyLevelsEL = document.querySelector('#diffucltyLevel')
 const letterBTNEL = document.querySelectorAll('.EngKey')
 const playerLetter = document.querySelectorAll('.word')
 const enterButtonEl = document.querySelector('#EngEnter')
-
+const deleteBTNEl = document.querySelector('#delete')
 
 
 
@@ -34,9 +34,9 @@ function init() {
     console.log(PickedWord)
 }
 
-function runGame() {
+function runGame(event) {
 
-   
+    putTheLetterIn(event)
 
 
 }
@@ -46,7 +46,7 @@ function pickRAndomWord() {
 function putTheLetterIn(event) {
     for (let i = 0; i < playerLetter.length; i++) {
         if (playerLetter[i].textContent === '') {
-            playerLetter[i].textContent = event.target.textContent
+             playerLetter[i].textContent = event.target.textContent
             playerWord.push(event.target.textContent)
             return
         }
@@ -57,7 +57,10 @@ function putTheLetterIn(event) {
 
 
 function checkWord() {
-
+    if(playerWord.length < 5){
+       console.log('word too short')
+        return
+    }
 
     for (let i = 0; i < 5; i++) {
         if (playerWord[i].toLowerCase() === PickedWord[i]) {
@@ -74,12 +77,17 @@ function checkWord() {
     playerWord.splice(0, playerWord.length)
 }
 
-
+function deleteF (){
+    
+    playerWord.pop()
+}
 /* EventListener */
 
 
 for (let oneLetter of letterBTNEL) {
-    oneLetter.addEventListener('click', putTheLetterIn)
+    oneLetter.addEventListener('click', runGame)
 }
 
 enterButtonEl.addEventListener('click', checkWord)
+
+deleteBTNEl.addEventListener('click' , deleteF)
