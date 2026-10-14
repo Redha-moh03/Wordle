@@ -22,7 +22,7 @@ const randomWords = ['adore' , 'agree' , 'amuse' , 'ideal' ,'jolly' , 'greet' , 
 /* variables */
 let PickedWord 
 let newLetter
-
+const playerWord = []
 
 
 
@@ -31,7 +31,7 @@ let newLetter
 init() 
 function init (){
   pickRAndomWord()
-  
+  console.log(PickedWord)
 }
 
 function runGame(event){
@@ -49,15 +49,27 @@ function putTheLetterIn (event){
         if (playerLetter[i].textContent === '')
             {
            playerLetter[i].textContent = event.target.textContent
+           playerWord.push(event.target.textContent)
            return
         }
     } 
 
     
 }
+
+console.log(playerLetter)
 function checkWord (){
+   for (let i = 0 ; i < 5 ; i++){
+    if (playerWord[i].toLowerCase() === PickedWord[i].toLowerCase()){
+        console.log('letter is right')
 
+    }
+    else if(PickedWord.includes(playerWord[i].toLowerCase())){
+        console.log('Letter in word but wrong position')
+    }
+   }
 
+   playerWord.splice(0,playerWord.length)
 }
 
 

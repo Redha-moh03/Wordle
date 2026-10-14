@@ -8,6 +8,23 @@ p {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    text-align: center;
     
     display: inline-block;
+}
+
+
+#gameBoard{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width:350px
+
+}
+
+
+#big-board{
+    display: flex;
+    justify-content: center;
+
 }
