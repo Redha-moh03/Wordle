@@ -2,14 +2,16 @@ p {
     width: 60px;
     height: 60px;
     border-radius: 8px;
-    border: 2px;
+    border: 2px; 
     background-color: rgb(180, 103, 103);
-    display: flex;
+    /* display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    text-align: center;
+    text-align: center; */
     display: inline-block;
+    size: 10px;
+    
 }
 
 
@@ -31,4 +33,12 @@ p {
     border-radius: 6px;
     
   
+}
+.wordContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    
 }

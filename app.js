@@ -56,8 +56,7 @@ function putTheLetterIn(event) {
     }
     else
     {
-        /* console.log(playerLetter)
-        console.log(playerWord) */
+        
         return 
 
     }
