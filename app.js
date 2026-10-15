@@ -92,8 +92,20 @@ function checkWord() {
         for (let i = playerLetter.length - 1; i >= 0; i--) {
             playerLetter[i].textContent = ''
         }
+        init()
+        gameOver = true
     }
-
+    
+    else if (playerLetter[24].textContent !='' && !gameOver)
+     {
+          PickedWord = ''
+        console.log('you lost')
+        for (let i = playerLetter.length - 1; i >= 0; i--) {
+            playerLetter[i].textContent = ''
+        }
+        init()
+        gameOver = true
+     }
     playerWord.splice(0, playerWord.length)
 
 }
