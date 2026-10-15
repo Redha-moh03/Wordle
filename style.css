@@ -1,5 +1,6 @@
 * {
     text-align: center;
+    font-family: system-ui, sans-serif;
 }
 
 p {
@@ -82,7 +83,8 @@ p {
 }
 
 #EngEnter{
-    width: 150px;
+    width: 80px;
     height: 80px;
-    size: 0rem;
+    size: 80px;
+    
 }
