@@ -13,8 +13,8 @@ p {
     display: inline-block;
     size: 30px;
     text-align: center; */
-    
-    
+
+
 }
 
 
@@ -34,13 +34,15 @@ p {
 
 #lettersBTNS {
     border-radius: 6px;
-    
-  
+
+
 }
+
 .wordContainer {
     display: flex;
 }
-.word{
+
+.word {
     margin: 5px;
     display: flex;
     flex-direction: row;
@@ -50,5 +52,17 @@ p {
     display: inline-block;
     size: 30px;
     text-align: center;
-    
+
+}
+
+
+#letterBTN {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+
 }
