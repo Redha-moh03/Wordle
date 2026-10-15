@@ -5,8 +5,7 @@ const playerLetter = document.querySelectorAll('.word')
 const enterButtonEl = document.querySelector('#EngEnter')
 const deleteBTNEl = document.querySelector('#delete')
 const messageElement = document.querySelector('#message')
-
-let round = 0
+const playBtnEl = document.querySelector('#playAgain')
 
 
 
@@ -25,6 +24,7 @@ const playerWord = []
 let PickedWord
 let newLetter
 let gameOver = false
+let round = 0
 
 
 
@@ -33,12 +33,20 @@ let gameOver = false
 /* functions */
 init()
 function init() {
+    gameOver = false
+    messageElement.classList.add('hide')
+    round = 0
     for (let i = 0; i < playerLetter.length; i++) {
         playerLetter[i].classList.remove('green')
         playerLetter[i].classList.remove('orange')
     }
+     for (let i = playerLetter.length - 1; i >= 0; i--) {
+            playerLetter[i].textContent = ''
+        }
     pickRAndomWord()
-    /* console.log(PickedWord) */
+    
+    playerWord.splice(0, playerWord.length)
+    
 }
 
 function runGame(event) {
@@ -51,8 +59,8 @@ function pickRAndomWord() {
     PickedWord = randomWords[Math.floor(Math.random() * 11)]
 }
 function putTheLetterIn(event) {
-    if (playerWord.length < 5) {
-        for (let i = 0; i < playerLetter.length; i++) {
+    if (playerWord.length < 5 && !gameOver) {
+        for (let i = 0; i < 25 ; i++) {
             if (playerLetter[i].textContent === '') {
                 playerLetter[i].textContent = event.target.textContent
                 playerWord.push(event.target.textContent)
@@ -71,47 +79,43 @@ function putTheLetterIn(event) {
 
 function checkWord() {
 
-    if (playerWord.length < 5) {
+    if (playerWord.length < 5 && !gameOver) {
         console.log('word too short')
         return
     }
 
     for (let i = 0; i < playerWord.length; i++) {
-        if (playerWord[i].toLowerCase() === PickedWord[i]) {
+        if (playerWord[i].toLowerCase() === PickedWord[i] && !gameOver) {
             console.log(`${playerWord[i]} is in the right place`)
             playerLetter[i + (round * PickedWord.length)].classList.add('green');
         }
-        else if (PickedWord.includes(playerWord[i].toLowerCase())) {
+        else if (PickedWord.includes(playerWord[i].toLowerCase()) && !gameOver) {
             console.log(`${playerWord[i]} is in the word but not in the right position`)
             playerLetter[i + (round * PickedWord.length)].classList.add('orange');
 
 
         }
-        else if (!PickedWord.includes(playerWord[i])) {
+        else if (!PickedWord.includes(playerWord[i]) && !gameOver) {
             console.log(`${playerWord[i]} is not in the word`)
         }
 
     }
 
-    if (playerWord.join("").toLowerCase() === PickedWord) {
+    if (playerWord.join("").toLowerCase() === PickedWord && !gameOver) {
         PickedWord = ''
         console.log('you won!')
         messageElement.textContent = 'you won!'
-        messageElement.classList.toggle('hide')
-        for (let i = playerLetter.length - 1; i >= 0; i--) {
-            playerLetter[i].textContent = ''
-        }
-        init()
+        messageElement.classList.toggle('hide') 
         gameOver = true
     }
 
     else if (playerLetter[24].textContent != '' && !gameOver) {
         PickedWord = ''
         console.log('you lost')
-        for (let i = playerLetter.length - 1; i >= 0; i--) {
+        /* for (let i = playerLetter.length - 1; i >= 0; i--) {
             playerLetter[i].textContent = ''
         }
-        init()
+        init() */
         gameOver = true
     }
     playerWord.splice(0, playerWord.length)
@@ -147,6 +151,6 @@ enterButtonEl.addEventListener('click', checkWord)
 
 deleteBTNEl.addEventListener('click', deleteF)
 
-
+playBtnEl.addEventListener('click' , init)
 
 
