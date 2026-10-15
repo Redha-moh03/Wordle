@@ -55,8 +55,12 @@ function runGame(event) {
 
 
 }
-function pickRAndomWord() {
-    PickedWord = randomWords[Math.floor(Math.random() * 11)]
+async function pickRAndomWord() {
+    // PickedWord = randomWords[Math.floor(Math.random() * 11)]
+    const response = await fetch('https://randomapi.dev/api/words?minLength=5&maxLength=5&count=1')
+    const data = await response.json()
+    PickedWord = data.data[0].word
+    console.log(PickedWord)
 }
 function putTheLetterIn(event) {
     if (playerWord.length < 5 && !gameOver) {
@@ -77,7 +81,26 @@ function putTheLetterIn(event) {
 }
 
 
-function checkWord() {
+async function checkWord() {
+
+    const response = await fetch(`https://freedictionaryapi.com/api/v1/entries/en/${playerWord.join('').toLowerCase()}`)
+
+    const data = await response.json()
+
+    console.log(data)
+
+    if(data.entries.length === 0){
+        messageElement.textContent = 'Not a valid Word'
+        messageElement.classList.toggle('hide')
+        setTimeout(()=>{
+            messageElement.classList.toggle('hide')
+        messageElement.textContent = ''
+
+
+        },5000)
+        return
+    }
+
 
     if (playerWord.length < 5 && !gameOver) {
         
@@ -85,18 +108,19 @@ function checkWord() {
     }
 
     for (let i = 0; i < playerWord.length; i++) {
+        console.log(playerWord)
+        console.log(PickedWord)
         if (playerWord[i].toLowerCase() === PickedWord[i] && !gameOver) {
-            
+
             playerLetter[i + (round * PickedWord.length)].classList.add('green');
         }
         else if (PickedWord.includes(playerWord[i].toLowerCase()) && !gameOver) {
-            
-            playerLetter[i + (round * PickedWord.length)].classList.add('orange');
 
+            playerLetter[i + (round * PickedWord.length)].classList.add('orange');
 
         }
         else if (!PickedWord.includes(playerWord[i]) && !gameOver) {
-            
+
         }
 
     }
