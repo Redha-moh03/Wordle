@@ -6,12 +6,12 @@ const enterButtonEl = document.querySelector('#EngEnter')
 const deleteBTNEl = document.querySelector('#delete')
 const messageElement = document.querySelector('#message')
 const playBtnEl = document.querySelector('#playAgain')
-
-
-
+const hardBtnEl = document.querySelector('#hard')
+const ModrateBtnEl = document.querySelector('#Modrate')
+const easyBtnEl = document.querySelector('#easy')
+const wordContainer = document.querySelectorAll('.wordContainer')
 
 /* constents */
-const randomWords = ['adore', 'agree', 'amuse', 'ideal', 'jolly', 'greet', 'magic', 'happy', 'lucky', 'model', 'peace']
 const playerWord = []
 
 
@@ -32,6 +32,10 @@ let round = 0
 
 /* functions */
 init()
+function selectEasy (){
+       for (let i = 0 ; i < wordContainer.length ; i++) 
+       wordContainer[i].classList.remove('hide')
+}
 function init() {
     gameOver = false
     messageElement.classList.add('hide')
@@ -56,7 +60,7 @@ function runGame(event) {
 
 }
 async function pickRAndomWord() {
-    // PickedWord = randomWords[Math.floor(Math.random() * 11)]
+    
     const response = await fetch('https://randomapi.dev/api/words?minLength=5&maxLength=5&count=1')
     const data = await response.json()
     PickedWord = data.data[0].word
@@ -173,4 +177,4 @@ deleteBTNEl.addEventListener('click', deleteF)
 
 playBtnEl.addEventListener('click', init)
 
-
+easyBtnEl.addEventListener('click' , selectEasy)

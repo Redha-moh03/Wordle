@@ -15,9 +15,9 @@
         <div class="hidden">
             <h1>Wordle</h1>
             <h2>Choose diffuclty level</h2>
-            <div id="diffucltyLevel"><button>Easy</button>
-                <button>Modrate</button>
-                <button>Hard</button>
+            <div id="diffucltyLevel"><button id="easy">Easy</button>
+                <button id="Modrate">Modrate</button>
+                <button id="hard">Hard</button>
             </div>
         </div>
         <div class="hidden">
@@ -29,9 +29,9 @@
 
     <span class="hide" id="message"></span>
 
-    <div id="big-board">
+    <div id="big-board" class="hide">
         <div id="gameBoard">
-            <div class="wordContainer">
+            <div class="wordContainer hide">
                 <p class="word"></p>
                 <p class="word"></p>
                 <p class="word"></p>
@@ -39,7 +39,7 @@
                 <p class="word"></p>
             </div>
 
-            <div class="wordContainer">
+            <div class="wordContainer hide">
                 <p class="word 1"></p>
                 <p class="word 1"></p>
                 <p class="word 1"></p>
@@ -48,7 +48,7 @@
             </div>
 
 
-            <div class="wordContainer">
+            <div class="wordContainer hide">
                 <p class="word 2"></p>
                 <p class="word 2"></p>
                 <p class="word 2"></p>
@@ -57,7 +57,7 @@
             </div>
 
 
-            <div class="wordContainer">
+            <div class="wordContainer hide">
                 <p class="word 3"></p>
                 <p class="word 3"></p>
                 <p class="word 3"></p>
@@ -66,7 +66,7 @@
             </div>
 
 
-            <div class="wordContainer">
+            <div class="wordContainer hide">
                 <p class="word 4"></p>
                 <p class="word 4"></p>
                 <p class="word 4"></p>
@@ -78,7 +78,7 @@
 
     </div>
 
-    <div id="lettersBTNS" class="hidden">
+    <div id="lettersBTNS" class="hidden hide">
         <button class="EngKey">Q</button> <button class="EngKey">W</button> <button class="EngKey">E</button> <button
             class="EngKey">R</button> <button class="EngKey">T</button> <button class="EngKey">Y</button> <button
             class="EngKey">U</button> <button class="EngKey">I</button> <button class="EngKey">O</button> <button
@@ -94,7 +94,7 @@
 
     </div>
 
-    <button id="playAgain">Play again!</button>
+    <button id="playAgain" class="hide">Play again!</button>
 
 
 
