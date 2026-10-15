@@ -1,3 +1,7 @@
+* {
+    text-align: center;
+}
+
 p {
     width: 60px;
     height: 60px;
@@ -63,6 +67,17 @@ p {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+}
 
 
+.hide {
+    display: none;
+}
+
+.green {
+    background-color: green;
+}
+
+.orange {
+    background-color: orange;
 }

@@ -4,8 +4,9 @@ const letterBTNEL = document.querySelectorAll('.EngKey')
 const playerLetter = document.querySelectorAll('.word')
 const enterButtonEl = document.querySelector('#EngEnter')
 const deleteBTNEl = document.querySelector('#delete')
+const messageElement = document.querySelector('#message')
 
-
+let round = 0
 
 
 
@@ -28,9 +29,14 @@ let gameOver = false
 
 
 
+
 /* functions */
 init()
 function init() {
+    for (let i = 0; i < playerLetter.length; i++) {
+        playerLetter[i].classList.remove('green')
+        playerLetter[i].classList.remove('orange')
+    }
     pickRAndomWord()
     /* console.log(PickedWord) */
 }
@@ -70,14 +76,15 @@ function checkWord() {
         return
     }
 
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < playerWord.length; i++) {
         if (playerWord[i].toLowerCase() === PickedWord[i]) {
             console.log(`${playerWord[i]} is in the right place`)
-
-
+            playerLetter[i + (round * PickedWord.length)].classList.add('green');
         }
         else if (PickedWord.includes(playerWord[i].toLowerCase())) {
             console.log(`${playerWord[i]} is in the word but not in the right position`)
+            playerLetter[i + (round * PickedWord.length)].classList.add('orange');
+
 
         }
         else if (!PickedWord.includes(playerWord[i])) {
@@ -89,25 +96,27 @@ function checkWord() {
     if (playerWord.join("").toLowerCase() === PickedWord) {
         PickedWord = ''
         console.log('you won!')
+        messageElement.textContent = 'you won!'
+        messageElement.classList.toggle('hide')
         for (let i = playerLetter.length - 1; i >= 0; i--) {
             playerLetter[i].textContent = ''
         }
         init()
         gameOver = true
     }
-    
-    else if (playerLetter[24].textContent !='' && !gameOver)
-     {
-          PickedWord = ''
+
+    else if (playerLetter[24].textContent != '' && !gameOver) {
+        PickedWord = ''
         console.log('you lost')
         for (let i = playerLetter.length - 1; i >= 0; i--) {
             playerLetter[i].textContent = ''
         }
         init()
         gameOver = true
-     }
+    }
     playerWord.splice(0, playerWord.length)
 
+    round++
 }
 
 
@@ -125,6 +134,8 @@ function deleteF() {
         }
     }
 }
+
+
 /* EventListener */
 
 
