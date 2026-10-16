@@ -82,7 +82,7 @@ async function pickRAndomWord() {
 }
 function putTheLetterIn(event) {
     if (playerWord.length < 5 && !gameOver) {
-        for (let i = 0; i < 25; i++) {
+        for (let i = 0; i < 30; i++) {
             if (playerLetter[i].textContent === '') {
                 playerLetter[i].textContent = event.target.textContent
                 playerWord.push(event.target.textContent)
@@ -153,7 +153,7 @@ async function checkWord() {
         gameOver = true
     }
 
-    else if (playerLetter[24].textContent != '' && !gameOver) {
+    else if (playerLetter[29].textContent != '' && !gameOver) {
         PickedWord = ''
         
         gameOver = true
