@@ -109,3 +109,9 @@ p {
     border: 0px;
 
 }
+.ArabicButton {
+    text-align: center;
+    width: 320px;
+    height: 75px;
+    margin: auto;
+}

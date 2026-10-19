@@ -193,19 +193,16 @@ async function pickEeasyRAndomWord() {
     const response = await fetch('https://randomapi.dev/api/words?minLength=5&maxLength=5&count=1')
     const data = await response.json()
     PickedWord = data.data[0].word
-    const saveWord = PickedWord
 }
 async function pickModrateRAndomWord() {
     const response = await fetch('https://randomapi.dev/api/words?minLength=6&maxLength=6&count=1')
     const data = await response.json()
     PickedWord = data.data[0].word
-    const saveWord = PickedWord
 }
 async function pichHardRandomWord() {
     const response = await fetch('https://randomapi.dev/api/words?minLength=7&maxLength=7&count=1')
     const data = await response.json()
     PickedWord = data.data[0].word
-    const saveWord = PickedWord
 }
 function putTheLetterIn(event) {
     if (playerWord.length < PickedWord.length && !gameOver) {
