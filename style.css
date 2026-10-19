@@ -1,16 +1,18 @@
 * {
     text-align: center;
     font-family: system-ui, sans-serif;
+    background-color: rgb(221, 225, 190);
 }
 
 p {
     width: 60px;
     height: 60px;
     border-radius: 8px;
-    border: 10px;
     border-color: black;
-    background-color: rgb(180, 103, 103);
-    
+    background-color: #ffffff;
+    size: 10px;
+    border-width: 3px;
+
 
 
 }
@@ -55,7 +57,7 @@ p {
 
 
 #letterBTN {
-    
+
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -77,14 +79,33 @@ p {
     background-color: orange;
 }
 
-.EngKey{
+.EngKey {
     width: 80px;
     height: 80px;
 }
 
-#EngEnter{
+#EngEnter {
     width: 80px;
     height: 80px;
     size: 80px;
-    
+
+}
+
+.hideM {
+    display: none;
+}
+
+.hideH {
+    display: none;
+}
+
+.languageBtn {
+    border-radius: 40px;
+    background-color: rgb(250, 238, 218);
+    margin: 10PX;
+    width: 200PX;
+    height: 50PX;
+    margin-right: 700px;
+    border: 0px;
+
 }
