@@ -1,3 +1,5 @@
+#  The wordle game
+## what the user should be able to do 
 1. user should see the keyboard when he loads the page 
 2. user should choose between arabic and english
 3. user should select a diffuclty level
