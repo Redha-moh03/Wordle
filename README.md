@@ -17,7 +17,7 @@ The player would have to choose betwwen 2 languages Arabic and English than choo
 ![randome word function](./screenshots/Screenshot%202026-10-19%20131828.png)
 These functions genrates a randome number between 0 and 1 than it multibly it by 1000 to select an index of the 1000 words length array  there is 3 arrays each one has 1000 words of length 5 ,6 and 7 based on the diffuclty level than it saves this word in a variable.
 ### selecting a language
-[chicking the language function](./screenshots/Screenshot%202026-10-19%20131922.png)
+![chicking the language function](./screenshots/Screenshot%202026-10-19%20131922.png)
 These functions change the variable for every time you select a language and it shows the language keyboard and hide the other language keyboard
 ### initail function 
 ![initial page function](./screenshots/Screenshot%202026-10-19%20131951.png)
