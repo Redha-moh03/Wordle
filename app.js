@@ -234,20 +234,6 @@ async function checkWord() {
             return
         }
     }
-    /* if (arabic) {
-        const response = await fetch(`https://freedictionaryapi.com/api/v1/entries/ar/${playerWord.join('')}`)
-        const data = await response.json()
-        console.log(data)
-        if (data.entries.length === 0) {
-            messageElement.textContent = 'Not a valid Word'
-            messageElement.classList.toggle('hide')
-            setTimeout(() => {
-                messageElement.classList.toggle('hide')
-                messageElement.textContent = ''
-            }, 5000)
-            return
-        }
-    } */
     if (english) {
         for (let i = 0; i < playerWord.length; i++) {
             if (playerWord[i].toLowerCase() === PickedWord[i] && !gameOver) {
@@ -362,15 +348,12 @@ function deleteF() {
 }
 function pickEasyArabicWord() {
     PickedWord = words5[Math.floor(Math.random() * 1000)]
-    const saveWord = PickedWord
 }
 function pickModrateArabicWord() {
     PickedWord = words6[Math.floor(Math.random() * 1000)]
-    const saveWord = PickedWord
 }
 function pickHardyArabicWord() {
     PickedWord = words7[Math.floor(Math.random() * 1000)]
-    const saveWord = PickedWord
 }
 function putArabicletterin(event) {
     if (playerWord.length < PickedWord.length && !gameOver) {

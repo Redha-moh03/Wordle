@@ -12,6 +12,9 @@ The player would have to choose betwwen 2 languages Arabic and English than choo
 6. user should see wich charchters are in the word and wich are not and if the charchters are at the right place
 7. user should have limted attempts
 8. user should get a reset button to play again with a diffrent word
+## Technolgies
+![intial function](./screenshots/Screenshot%202026-10-19%20131828.png)
+
 ## resources
 1. This API checks if the word that player entered is valid <br>
 https://freedictionaryapi.com/api/v1/entries/en/
