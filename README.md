@@ -13,8 +13,8 @@ The player would have to choose betwwen 2 languages Arabic and English than choo
 7. user should have limted attempts
 8. user should get a reset button to play again with a diffrent word
 ## resources
-1. This API checks if the word that player entered is valid
+1. This API checks if the word that player entered is valid <br>
 https://freedictionaryapi.com/api/v1/entries/en/
 
-2. This API takes a length parameter and a word counter parameter i used it to genrate randome english words
+2. This API takes a length parameter and a word counter parameter i used it to genrate randome english words <br>
 https://randomapi.dev/api/words?minLength=5&maxLength=5&count=1
