@@ -22,6 +22,8 @@ const arbDeleteEl = document.querySelector('#arbDelete')
 const arbPLay = document.querySelector('#arbPLay')
 const streakEl = document.querySelector('#highScore')
 const playerWord = []
+const audio = new Audio('./sounds/c.mp3')
+
 let PickedWord
 let gameOver = false
 let round = 0
@@ -240,8 +242,10 @@ async function checkWord() {
         for (let i = 0; i < playerWord.length; i++) {
             if (playerWord[i].toLowerCase() === PickedWord[i] && !gameOver) {
                 playerLetter[i + (round * PickedWord.length)].classList.add('green');
+                playerLetter[i + (round * PickedWord.length)].classList.add('flip');
             }
             else if (PickedWord.includes(playerWord[i].toLowerCase()) && !gameOver) {
+                playerLetter[i + (round * PickedWord.length)].classList.add('flip');
                 playerLetter[i + (round * PickedWord.length)].classList.add('orange');
             }
             else if (!PickedWord.includes(playerWord[i]) && !gameOver) {
@@ -374,10 +378,10 @@ function putArabicletterin(event) {
             if (playerLetter[(i + round * PickedWord.length)].textContent === '') {
                 playerLetter[(i + round * PickedWord.length)].textContent = event.target.textContent
                 playerWord.push(event.target.textContent)
+                audio.play();
                 return
             }
         }
-        audio.play();
     }
     else {
         return

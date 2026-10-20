@@ -312,3 +312,6 @@ body {
     border-radius: 20px;
     text-align: center;
 }
+.flip {
+    animation: flipInY 1s ease-in-out;
+}
