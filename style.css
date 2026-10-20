@@ -1,117 +1,314 @@
 * {
+    box-sizing: border-box;
     text-align: center;
     font-family: system-ui, sans-serif;
-    background-color: rgb(221, 225, 190);
 }
 
-p {
-    width: 60px;
-    height: 60px;
-    border-radius: 8px;
-    border-color: black;
-    background-color: #ffffff;
-    size: 10px;
-    border-width: 3px;
-
-
-
+body {
+    margin: 0;
+    padding: 20px;
+    background-color: #a5bbc2;
+    color: #0c0c0c;
 }
 
-
-#gameBoard {
+#mainLayout {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 350px
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 30px;
+    width: fit-content;
+    max-width: 100%;
+    margin: 20px;
 }
 
+#sidePanel {
+    width: 200px;
+    flex-shrink: 0;
+    padding: 15px;
+    background-color: #dce5e8;
+    border-radius: 8px;
+}
+
+#sidePanel h2 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.languageBox {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.languageBtn {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #71858c;
+    border-radius: 5px;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+#easy {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #71858c;
+    border-radius: 5px;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+#Modrate {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #71858c;
+    border-radius: 5px;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+#hard {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #71858c;
+    border-radius: 5px;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+.languageBtn:hover {
+    background-color: #c6d8de;
+}
+
+#easy:hover {
+    background-color: #c6d8de;
+}
+
+#Modrate:hover {
+    background-color: #c6d8de;
+}
+
+#hard:hover {
+    background-color: #c6d8de;
+}
+#gameArea {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+}
 
 #big-board {
     display: flex;
     justify-content: center;
-
+    width: 100%;
 }
 
-#lettersBTNS {
-    border-radius: 6px;
-
-
+#gameBoard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
 
 .wordContainer {
     display: flex;
+    justify-content: center;
 }
 
 .word {
-    margin: 5px;
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    display: inline-block;
-    size: 30px;
-    text-align: center;
-
-}
-
-
-#letterBTN {
-
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-
-.hide {
-    display: none;
+    width: 48px;
+    height: 48px;
+    margin: 3px;
+    border: 2px solid #71858c;
+    border-radius: 5px;
+    background-color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
 }
 
 .green {
-    background-color: green;
+    background-color: #6aaa64;
+    color: #ffffff;
 }
 
 .orange {
-    background-color: orange;
+    background-color: #c9b458;
+    color: #ffffff;
+}
+
+#lettersBTNS {
+    width: 100%;
+    max-width: 520px;
+    padding: 10px;
+    border-radius: 8px;
 }
 
 .EngKey {
-    width: 80px;
-    height: 80px;
+    height: 42px;
+    min-width: 35px;
+    margin: 3px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #d9e0e3;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 #EngEnter {
-    width: 80px;
-    height: 80px;
-    size: 80px;
-
+    height: 42px;
+    min-width: 35px;
+    margin: 3px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #d9e0e3;
+    font-size: 16px;
+    cursor: pointer;
 }
 
-.hideM {
-    display: none;
+#delete {
+    height: 42px;
+    min-width: 35px;
+    margin: 3px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #d9e0e3;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#EngEnter {
+    background-color: #c4d2d7;
+}
+
+#delete {
+    background-color: #c4d2d7;
+}
+
+.ArabicButton {
+    width: 100%;
+    max-width: 520px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.ArbKey {
+    min-width: 30px;
+    min-height: 40px;
+    margin: 3px;
+    padding: 6px;
+    border: none;
+    border-radius: 5px;
+    background-color: #d9e0e3;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#arbEnter {
+    min-width: 30px;
+    min-height: 40px;
+    margin: 3px;
+    padding: 6px;
+    border: none;
+    border-radius: 5px;
+    background-color: #d9e0e3;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#arbDelete {
+    min-width: 30px;
+    min-height: 40px;
+    margin: 3px;
+    padding: 6px;
+    border: none;
+    border-radius: 5px;
+    background-color: #d9e0e3;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#arbEnter {
+    background-color: #c4d2d7;
+}
+
+#arbDelete {
+    background-color: #c4d2d7;
+}
+
+#playAgain {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+#arbPLay {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+#message {
+    display: inline-block;
+    margin: 15px auto;
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .hideH {
     display: none;
 }
 
-.languageBtn {
-    border-radius: 40px;
-    background-color: rgb(250, 238, 218);
-    margin: 10PX;
-    width: 200PX;
-    height: 50PX;
-    margin-right: 700px;
-    border: 0px;
-
+.hideM {
+    display: none;
 }
-.ArabicButton {
+
+.hide {
+    display: none;
+}
+
+#gameArea {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 0;
+    min-width: 0;
+}
+
+#big-board {
+    display: flex;
+    justify-content: center;
+    width: auto;
+    margin: 0;
+}
+
+#lettersBTNS {
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
     text-align: center;
-    width: 320px;
-    height: 75px;
-    margin: auto;
+}
+#highScore {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    right: 5%;
+    background-color: #dce5e8;
+    height: 30px;
+    width: 170px;   
+    border-radius: 20px;
+    text-align: center;
 }

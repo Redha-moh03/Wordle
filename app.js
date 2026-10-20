@@ -20,6 +20,7 @@ const arabicButtonsEl = document.querySelector('.ArabicButton')
 const ArbEnterEl = document.querySelector('#arbEnter')
 const arbDeleteEl = document.querySelector('#arbDelete')
 const arbPLay = document.querySelector('#arbPLay')
+const streakEl = document.querySelector('#highScore')
 const playerWord = []
 let PickedWord
 let gameOver = false
@@ -29,6 +30,7 @@ let easyLevel = false
 let modrateLevel = false
 let arabic = false
 let english = true
+let streak = 0
 init()
 function selectArabic() {
     english = false
@@ -148,7 +150,7 @@ function selectModrate() {
         playerLetter[i].textContent = ''
     }
     playerWord.splice(0, playerWord.length)
-    playerLetter = document.querySelectorAll('.word:not(.hideH')
+    playerLetter = document.querySelectorAll('.word:not(.hideH)')
     if (english) {
         keyboardEl.classList.remove('hide')
         playBtnEl.classList.remove('hide')
@@ -230,7 +232,7 @@ async function checkWord() {
             setTimeout(() => {
                 messageElement.classList.toggle('hide')
                 messageElement.textContent = ''
-            }, 5000)
+            }, 4000)
             return
         }
     }
@@ -321,15 +323,26 @@ async function checkWord() {
         }
     }
     if (playerWord.join("").toLowerCase() === PickedWord && !gameOver) {
+        streak ++
         PickedWord = ''
         messageElement.textContent = 'you won!'
         messageElement.classList.toggle('hide')
+            setTimeout(() => {
+                messageElement.classList.toggle('hide')
+                messageElement.textContent = ''
+            }, 4000)
         gameOver = true
+        streakEl.textContent = `Win streak : ${streak}`
     }
     else if (playerLetter[playerLetter.length - 1].textContent != '' && !gameOver) {
+        streakEl.textContent = `Win streak : 0`
         messageElement.textContent = `You lost ,Your word was ${PickedWord}`
-        PickedWord = ''
         messageElement.classList.toggle('hide')
+        setTimeout(() => {
+            messageElement.classList.toggle('hide')
+            messageElement.textContent = ''
+        }, 4000)
+        PickedWord = ''
         gameOver = true
     }
     playerWord.splice(0, playerWord.length)
@@ -364,6 +377,7 @@ function putArabicletterin(event) {
                 return
             }
         }
+        audio.play();
     }
     else {
         return

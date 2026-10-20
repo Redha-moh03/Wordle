@@ -11,138 +11,141 @@
 </head>
 
 <body>
-
-    <div class="hidden">
-        <div class="hidden">
+    <div id="highScore">win streak : 0</div>
+    <div id="mainLayout">
+        <div id="sidePanel" class="hidden">
             <h1>Wordle</h1>
-            <h2>Choose language</h2>
-            <button class="languageBtn" id="arabic">عربي</button>
-            <li><button class="languageBtn" id="english">English</button></li>
+            <div class="languageBox">
+                <h2>Choose language</h2>
+                <button class="languageBtn" id="arabic">عربي</button>
+                <li><button class="languageBtn" id="english">English</button></li>
+            </div>
+            <h2 class="hide diffucltyLevel">Choose diffuclty level</h2>
+            <div class="diffucltyLevel hide"><button id="easy">Easy</button>
+                <button id="Modrate">Moderate</button>
+                <button id="hard">Hard</button>
+            </div>
         </div>
-        <h2 class="hide diffucltyLevel">Choose diffuclty level</h2>
-        <div class="diffucltyLevel hide"><button id="easy">Easy</button>
-            <button id="Modrate">Modrate</button>
-            <button id="hard">Hard</button>
-        </div>
-    </div>
-    <div class="hidden">
-    </div>
-
-    <span class="hide" id="message"></span>
-
-    <div id="big-board" class="hide">
-        <div id="gameBoard">
-            <div class="wordContainer hide">
-                <p class="word"></p>
-                <p class="word"></p>
-                <p class="word"></p>
-                <p class="word"></p>
-                <p class="word"></p>
-                <p class="word m hideM"></p>
-                <p class="word h hideH"></p>
-            </div>
-
-            <div class="wordContainer hide">
-                <p class="word 1"></p>
-                <p class="word 1"></p>
-                <p class="word 1"></p>
-                <p class="word 1"></p>
-                <p class="word 1"></p>
-                <p class="word 1 m hideM"></p>
-                <p class="word 1 h hideH"></p>
-            </div>
-
-
-            <div class="wordContainer hide">
-                <p class="word 2"></p>
-                <p class="word 2"></p>
-                <p class="word 2"></p>
-                <p class="word 2"></p>
-                <p class="word 2"></p>
-                <p class="word 2 m hideM"></p>
-                <p class="word 2 h hideH"></p>
-            </div>
-
-
-            <div class="wordContainer hide">
-                <p class="word 3"></p>
-                <p class="word 3"></p>
-                <p class="word 3"></p>
-                <p class="word 3"></p>
-                <p class="word 3"></p>
-                <p class="word 3 m hideM"></p>
-                <p class="word 3 h hideH"></p>
-            </div>
-
-
-            <div class="wordContainer hide">
-                <p class="word 4"></p>
-                <p class="word 4"></p>
-                <p class="word 4"></p>
-                <p class="word 4"></p>
-                <p class="word 4"></p>
-                <p class="word 4 m hideM"></p>
-                <p class="word 4 h hideH"></p>
-            </div>
-
-            <div class="wordContainer hide">
-                <p class="word 5"></p>
-                <p class="word 5"></p>
-                <p class="word 5"></p>
-                <p class="word 5"></p>
-                <p class="word 5"></p>
-                <p class="word 5 m hideM"></p>
-                <p class="word 5 h hideH"></p>
-            </div>
-
+        <div class="hidden">
         </div>
 
-    </div>
+        <span class="hide" id="message"></span>
+        <div id="gameArea">
+            <div id="big-board" class="hide">
+                <div id="gameBoard">
+                    <div class="wordContainer hide">
+                        <p class="word"></p>
+                        <p class="word"></p>
+                        <p class="word"></p>
+                        <p class="word"></p>
+                        <p class="word"></p>
+                        <p class="word m hideM"></p>
+                        <p class="word h hideH"></p>
+                    </div>
 
-    <div id="lettersBTNS" class="hidden hide">
-        <button class="EngKey">Q</button> <button class="EngKey">W</button> <button class="EngKey">E</button> <button
-            class="EngKey">R</button> <button class="EngKey">T</button> <button class="EngKey">Y</button> <button
-            class="EngKey">U</button> <button class="EngKey">I</button> <button class="EngKey">O</button> <button
-            class="EngKey">P</button>
-        <br>
-        <button class="EngKey">A</button> <button class="EngKey">S</button> <button class="EngKey">D</button> <button
-            class="EngKey">F</button> <button class="EngKey">G</button> <button class="EngKey">H</button> <button
-            class="EngKey">J</button> <button class="EngKey">K</button> <button class="EngKey">L</button>
-        <br>
-        <button id="delete">⌫</button> <button class="EngKey">Z</button> <button class="EngKey">X</button> <button
-            class="EngKey">C</button> <button class="EngKey">V</button> <button class="EngKey">B</button> <button
-            class="EngKey">N</button> <button class="EngKey">M</button> <button id="EngEnter">Enter</button>
-
-    </div>
-
-    <button id="playAgain" class="hide">Play again!</button>
-    <div class="hide ArabicButton">
-        <button class="ArbKey">ذ</button><button class="ArbKey">ض</button><button class="ArbKey">ص</button><button
-            class="ArbKey">ث</button>
-        <button class="ArbKey">ق</button><button class="ArbKey">ف</button><button class="ArbKey">غ</button><button
-            class="ArbKey">ع</button>
-        <button class="ArbKey">ه</button><button class="ArbKey">خ</button><button class="ArbKey">ح</button><button
-            class="ArbKey">ج</button>
-            <br>
-        <button class="ArbKey">د</button>
-
-        <button class="ArbKey">ش</button><button class="ArbKey">س</button><button class="ArbKey">ي</button>
-        <button class="ArbKey">ب</button><button class="ArbKey">ل</button><button class="ArbKey">ا</button><button
-            class="ArbKey">ت</button>
-        <button class="ArbKey">ن</button><button class="ArbKey">م</button><button class="ArbKey">ك</button><button
-            class="ArbKey">ط</button>
-            <br>
-          <button id="arbEnter">أدخل</button>
-        <button class="ArbKey">ئ</button><button class="ArbKey">ء</button><button class="ArbKey">ؤ</button><button
-            class="ArbKey">ر</button>
-        <button class="ArbKey">ى</button><button class="ArbKey">ة</button><button class="ArbKey">و</button><button
-            class="ArbKey">ز</button>
-        <button class="ArbKey">ظ</button>
-        <button id="arbDelete">إمسح</button>
-        <br>
-        <button id="arbPLay" >إلعب مرة أخرى</button>
+                    <div class="wordContainer hide">
+                        <p class="word 1"></p>
+                        <p class="word 1"></p>
+                        <p class="word 1"></p>
+                        <p class="word 1"></p>
+                        <p class="word 1"></p>
+                        <p class="word 1 m hideM"></p>
+                        <p class="word 1 h hideH"></p>
+                    </div>
 
 
+                    <div class="wordContainer hide">
+                        <p class="word 2"></p>
+                        <p class="word 2"></p>
+                        <p class="word 2"></p>
+                        <p class="word 2"></p>
+                        <p class="word 2"></p>
+                        <p class="word 2 m hideM"></p>
+                        <p class="word 2 h hideH"></p>
+                    </div>
+
+
+                    <div class="wordContainer hide">
+                        <p class="word 3"></p>
+                        <p class="word 3"></p>
+                        <p class="word 3"></p>
+                        <p class="word 3"></p>
+                        <p class="word 3"></p>
+                        <p class="word 3 m hideM"></p>
+                        <p class="word 3 h hideH"></p>
+                    </div>
+
+
+                    <div class="wordContainer hide">
+                        <p class="word 4"></p>
+                        <p class="word 4"></p>
+                        <p class="word 4"></p>
+                        <p class="word 4"></p>
+                        <p class="word 4"></p>
+                        <p class="word 4 m hideM"></p>
+                        <p class="word 4 h hideH"></p>
+                    </div>
+
+                    <div class="wordContainer hide">
+                        <p class="word 5"></p>
+                        <p class="word 5"></p>
+                        <p class="word 5"></p>
+                        <p class="word 5"></p>
+                        <p class="word 5"></p>
+                        <p class="word 5 m hideM"></p>
+                        <p class="word 5 h hideH"></p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div id="lettersBTNS" class="hidden hide">
+                <button class="EngKey">Q</button> <button class="EngKey">W</button> <button class="EngKey">E</button>
+                <button class="EngKey">R</button> <button class="EngKey">T</button> <button class="EngKey">Y</button>
+                <button class="EngKey">U</button> <button class="EngKey">I</button> <button class="EngKey">O</button>
+                <button class="EngKey">P</button>
+                <br>
+                <button class="EngKey">A</button> <button class="EngKey">S</button> <button class="EngKey">D</button>
+                <button class="EngKey">F</button> <button class="EngKey">G</button> <button class="EngKey">H</button>
+                <button class="EngKey">J</button> <button class="EngKey">K</button> <button class="EngKey">L</button>
+                <br>
+                <button id="delete">⌫</button> <button class="EngKey">Z</button> <button class="EngKey">X</button>
+                <button class="EngKey">C</button> <button class="EngKey">V</button> <button class="EngKey">B</button>
+                <button class="EngKey">N</button> <button class="EngKey">M</button> <button id="EngEnter">Enter</button>
+
+            </div>
+
+            <button id="playAgain" class="hide">Play again!</button>
+            <div class="hide ArabicButton">
+                <button class="ArbKey">ذ</button><button class="ArbKey">ض</button><button
+                    class="ArbKey">ص</button><button class="ArbKey">ث</button>
+                <button class="ArbKey">ق</button><button class="ArbKey">ف</button><button
+                    class="ArbKey">غ</button><button class="ArbKey">ع</button>
+                <button class="ArbKey">ه</button><button class="ArbKey">خ</button><button
+                    class="ArbKey">ح</button><button class="ArbKey">ج</button>
+                <br>
+                <button class="ArbKey">د</button>
+
+                <button class="ArbKey">ش</button><button class="ArbKey">س</button><button class="ArbKey">ي</button>
+                <button class="ArbKey">ب</button><button class="ArbKey">ل</button><button
+                    class="ArbKey">ا</button><button class="ArbKey">ت</button>
+                <button class="ArbKey">ن</button><button class="ArbKey">م</button><button
+                    class="ArbKey">ك</button><button class="ArbKey">ط</button>
+                <br>
+                <button id="arbEnter">أدخل</button>
+                <button class="ArbKey">ئ</button><button class="ArbKey">ء</button><button
+                    class="ArbKey">ؤ</button><button class="ArbKey">ر</button>
+                <button class="ArbKey">ى</button><button class="ArbKey">ة</button><button
+                    class="ArbKey">و</button><button class="ArbKey">ز</button>
+                <button class="ArbKey">ظ</button>
+                <button id="arbDelete">إمسح</button>
+                <br>
+                <button id="arbPLay">إلعب مرة أخرى</button>
+
+
+            </div>
+        </div>
     </div>
 
 
