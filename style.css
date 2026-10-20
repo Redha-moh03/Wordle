@@ -310,6 +310,7 @@ Area {
     border-radius: 20px;
     background-color: #dce5e8;
     flex-direction: column;
+    cursor: pointer;
 }
 .dark{
     background-color: #0c0c0c;
@@ -324,4 +325,5 @@ Area {
     border-radius: 20px;
     background-color: #dce5e8;
     flex-direction: column;
+    cursor: pointer;
 }
