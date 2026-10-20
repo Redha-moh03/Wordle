@@ -21,9 +21,14 @@ const ArbEnterEl = document.querySelector('#arbEnter')
 const arbDeleteEl = document.querySelector('#arbDelete')
 const arbPLay = document.querySelector('#arbPLay')
 const streakEl = document.querySelector('#highScore')
+const pauseEl = document.querySelector('#pouse')
+const darkLightModeEl = document.querySelector('#lightDarkMode')
 const playerWord = []
 const audio = new Audio('./sounds/c.mp3')
+const WinA = new Audio('./sounds/v.mp3')
+const loseA = new Audio('./sounds/l.mp3')
 
+let pauseBtn = false
 let PickedWord
 let gameOver = false
 let round = 0
@@ -65,6 +70,8 @@ function selectEasy() {
     for (let i = 0; i < playerLetter.length; i++) {
         playerLetter[i].classList.remove('green')
         playerLetter[i].classList.remove('orange')
+        playerLetter[i].classList.remove('flip')
+
     }
     for (let i = playerLetter.length - 1; i >= 0; i--) {
         playerLetter[i].textContent = ''
@@ -105,6 +112,8 @@ function selectHard() {
     for (let i = 0; i < playerLetter.length; i++) {
         playerLetter[i].classList.remove('green')
         playerLetter[i].classList.remove('orange')
+        playerLetter[i].classList.remove('flip')
+
     }
     for (let i = playerLetter.length - 1; i >= 0; i--) {
         playerLetter[i].textContent = ''
@@ -147,6 +156,8 @@ function selectModrate() {
     for (let i = 0; i < playerLetter.length; i++) {
         playerLetter[i].classList.remove('green')
         playerLetter[i].classList.remove('orange')
+        playerLetter[i].classList.remove('flip')
+
     }
     for (let i = playerLetter.length - 1; i >= 0; i--) {
         playerLetter[i].textContent = ''
@@ -184,6 +195,8 @@ function init() {
     for (let i = 0; i < playerLetter.length; i++) {
         playerLetter[i].classList.remove('green')
         playerLetter[i].classList.remove('orange')
+        playerLetter[i].classList.remove('flip')
+
     }
     for (let i = playerLetter.length - 1; i >= 0; i--) {
         playerLetter[i].textContent = ''
@@ -245,8 +258,8 @@ async function checkWord() {
                 playerLetter[i + (round * PickedWord.length)].classList.add('flip');
             }
             else if (PickedWord.includes(playerWord[i].toLowerCase()) && !gameOver) {
-                playerLetter[i + (round * PickedWord.length)].classList.add('flip');
                 playerLetter[i + (round * PickedWord.length)].classList.add('orange');
+                playerLetter[i + (round * PickedWord.length)].classList.add('flip');
             }
             else if (!PickedWord.includes(playerWord[i]) && !gameOver) {
             }
@@ -269,9 +282,12 @@ async function checkWord() {
             for (let i = 4; i >= 0; i--) {
                 if (playerWord[i] === PickedWord[i] && !gameOver) {
                     lastArr[i + (round * PickedWord.length)].classList.add('green')
+                    lastArr[i + (round * PickedWord.length)].classList.add('flip')
                 }
                 else if (PickedWord.includes(playerWord[i]) && !gameOver) {
                     lastArr[i + (round * PickedWord.length)].classList.add('orange')
+                    lastArr[i + (round * PickedWord.length)].classList.add('flip')
+
                 }
                 else if (!PickedWord.includes(playerWord[i]) && !gameOver) {
                 }
@@ -293,9 +309,11 @@ async function checkWord() {
             for (let i = 5; i >= 0; i--) {
                 if (playerWord[i] === PickedWord[i] && !gameOver) {
                     lastArr[i + (round * PickedWord.length)].classList.add('green')
+                    lastArr[i + (round * PickedWord.length)].classList.add('flip')
                 }
                 else if (PickedWord.includes(playerWord[i]) && !gameOver) {
                     lastArr[i + (round * PickedWord.length)].classList.add('orange')
+                    lastArr[i + (round * PickedWord.length)].classList.add('flip')
                 }
                 else if (!PickedWord.includes(playerWord[i]) && !gameOver) {
                 }
@@ -317,9 +335,11 @@ async function checkWord() {
             for (let i = 6; i >= 0; i--) {
                 if (playerWord[i] === PickedWord[i] && !gameOver) {
                     lastArr[i + (round * PickedWord.length)].classList.add('green')
+                    lastArr[i + (round * PickedWord.length)].classList.add('flip')
                 }
                 else if (PickedWord.includes(playerWord[i]) && !gameOver) {
                     lastArr[i + (round * PickedWord.length)].classList.add('orange')
+                    lastArr[i + (round * PickedWord.length)].classList.add('flip')
                 }
                 else if (!PickedWord.includes(playerWord[i]) && !gameOver) {
                 }
@@ -327,14 +347,15 @@ async function checkWord() {
         }
     }
     if (playerWord.join("").toLowerCase() === PickedWord && !gameOver) {
-        streak ++
+        streak++
         PickedWord = ''
         messageElement.textContent = 'you won!'
         messageElement.classList.toggle('hide')
-            setTimeout(() => {
-                messageElement.classList.toggle('hide')
-                messageElement.textContent = ''
-            }, 4000)
+        setTimeout(() => {
+            messageElement.classList.toggle('hide')
+            messageElement.textContent = ''
+        }, 4000)
+        WinA.play();
         gameOver = true
         streakEl.textContent = `Win streak : ${streak}`
     }
@@ -346,6 +367,7 @@ async function checkWord() {
             messageElement.classList.toggle('hide')
             messageElement.textContent = ''
         }, 4000)
+        loseA.play();
         PickedWord = ''
         gameOver = true
     }
@@ -378,7 +400,6 @@ function putArabicletterin(event) {
             if (playerLetter[(i + round * PickedWord.length)].textContent === '') {
                 playerLetter[(i + round * PickedWord.length)].textContent = event.target.textContent
                 playerWord.push(event.target.textContent)
-                audio.play();
                 return
             }
         }
@@ -398,6 +419,54 @@ function deleteArabic() {
         }
     }
 }
+function darkLightMode() {
+    var element = document.body;
+    element.classList.toggle("dark");
+}
+function pause() {
+    if (!pauseBtn) {
+        for (let oneLetter of letterBTNEL) {
+            oneLetter.removeEventListener('click', runGame)
+        }
+        for (let oneArabicLetter of ArbLetterBtnEl) {
+            oneArabicLetter.removeEventListener('click', putArabicletterin)
+        }
+        arabicButtonEl.removeEventListener('click', selectArabic)
+        ArbEnterEl.removeEventListener('click', checkWord)
+        englishButtonEl.removeEventListener('click', selectEnglish)
+        arbDeleteEl.removeEventListener('click', deleteArabic)
+        arbPLay.removeEventListener('click', init)
+        enterButtonEl.removeEventListener('click', checkWord)
+        deleteBTNEl.removeEventListener('click', deleteF)
+        playBtnEl.removeEventListener('click', init)
+        easyBtnEl.removeEventListener('click', selectEasy)
+        ModrateBtnEl.removeEventListener('click', selectModrate)
+        hardBtnEl.removeEventListener('click', selectHard)
+        pauseBtn = true
+        pauseEl.textContent = "Unpause"
+    }
+    else {
+        for (let oneLetter of letterBTNEL) {
+            oneLetter.addEventListener('click', runGame)
+        }
+        for (let oneArabicLetter of ArbLetterBtnEl) {
+            oneArabicLetter.addEventListener('click', putArabicletterin)
+        }
+        arabicButtonEl.addEventListener('click', selectArabic)
+        ArbEnterEl.addEventListener('click', checkWord)
+        englishButtonEl.addEventListener('click', selectEnglish)
+        arbDeleteEl.addEventListener('click', deleteArabic)
+        arbPLay.addEventListener('click', init)
+        enterButtonEl.addEventListener('click', checkWord)
+        deleteBTNEl.addEventListener('click', deleteF)
+        playBtnEl.addEventListener('click', init)
+        easyBtnEl.addEventListener('click', selectEasy)
+        ModrateBtnEl.addEventListener('click', selectModrate)
+        hardBtnEl.addEventListener('click', selectHard)
+        pauseEl.textContent = "Pause"
+        pauseBtn = false
+    }
+}
 enterButtonEl.addEventListener('click', checkWord)
 deleteBTNEl.addEventListener('click', deleteF)
 playBtnEl.addEventListener('click', init)
@@ -415,3 +484,5 @@ ArbEnterEl.addEventListener('click', checkWord)
 englishButtonEl.addEventListener('click', selectEnglish)
 arbDeleteEl.addEventListener('click', deleteArabic)
 arbPLay.addEventListener('click', init)
+pauseEl.addEventListener('click', pause)
+darkLightModeEl.addEventListener('click', darkLightMode)
