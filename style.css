@@ -118,12 +118,16 @@ Area {
 
 .green {
     background-color: #6aaa64;
-    color: #ffffff;
+    color: white
+}
+.gray{
+    background-color: gray;
+    color: white;
 }
 
 .orange {
     background-color: #c9b458;
-    color: #ffffff;
+    color: white;
 }
 
 #lettersBTNS {

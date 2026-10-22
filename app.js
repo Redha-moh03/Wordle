@@ -27,7 +27,6 @@ const playerWord = []
 const audio = new Audio('./sounds/c.mp3')
 const WinA = new Audio('./sounds/v.mp3')
 const loseA = new Audio('./sounds/l.mp3')
-
 let pauseBtn = false
 let PickedWord
 let gameOver = false
@@ -196,6 +195,7 @@ function init() {
         playerLetter[i].classList.remove('green')
         playerLetter[i].classList.remove('orange')
         playerLetter[i].classList.remove('flip')
+        playerLetter[i].classList.remove('gray')
 
     }
     for (let i = playerLetter.length - 1; i >= 0; i--) {
@@ -262,6 +262,8 @@ async function checkWord() {
                 playerLetter[i + (round * PickedWord.length)].classList.add('flip');
             }
             else if (!PickedWord.includes(playerWord[i]) && !gameOver) {
+                playerLetter[i + (round * PickedWord.length)].classList.add('gray');
+                playerLetter[i + (round * PickedWord.length)].classList.add('flip');
             }
         }
     }
@@ -290,6 +292,8 @@ async function checkWord() {
 
                 }
                 else if (!PickedWord.includes(playerWord[i]) && !gameOver) {
+                    lastArr[i + (round * PickedWord.length)].classList.add('gray')
+                    lastArr[i + (round * PickedWord.length)].classList.add('flip')
                 }
             }
         }
@@ -316,6 +320,8 @@ async function checkWord() {
                     lastArr[i + (round * PickedWord.length)].classList.add('flip')
                 }
                 else if (!PickedWord.includes(playerWord[i]) && !gameOver) {
+                    lastArr[i + (round * PickedWord.length)].classList.add('gray')
+                    lastArr[i + (round * PickedWord.length)].classList.add('flip')
                 }
             }
         }
@@ -342,6 +348,9 @@ async function checkWord() {
                     lastArr[i + (round * PickedWord.length)].classList.add('flip')
                 }
                 else if (!PickedWord.includes(playerWord[i]) && !gameOver) {
+                    lastArr[i + (round * PickedWord.length)].classList.add('gray')
+                    lastArr[i + (round * PickedWord.length)].classList.add('flip')
+                    
                 }
             }
         }
@@ -366,7 +375,7 @@ async function checkWord() {
         setTimeout(() => {
             messageElement.classList.toggle('hide')
             messageElement.textContent = ''
-        }, 4000)
+        }, 15000)
         loseA.play();
         PickedWord = ''
         gameOver = true
