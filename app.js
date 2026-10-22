@@ -69,8 +69,19 @@ function selectEasy() {
     for (let i = 0; i < playerLetter.length; i++) {
         playerLetter[i].classList.remove('green')
         playerLetter[i].classList.remove('orange')
+        playerLetter[i].classList.remove('gray')
         playerLetter[i].classList.remove('flip')
 
+    }
+    for (let oneLetter of letterBTNEL) {
+        oneLetter.classList.remove('green')
+        oneLetter.classList.remove('gray')
+        oneLetter.classList.remove('orange')
+    }
+    for (let oneLetter of ArbLetterBtnEl) {
+        oneLetter.classList.remove('green')
+        oneLetter.classList.remove('gray')
+        oneLetter.classList.remove('orange')
     }
     for (let i = playerLetter.length - 1; i >= 0; i--) {
         playerLetter[i].textContent = ''
@@ -111,8 +122,19 @@ function selectHard() {
     for (let i = 0; i < playerLetter.length; i++) {
         playerLetter[i].classList.remove('green')
         playerLetter[i].classList.remove('orange')
+        playerLetter[i].classList.remove('gray')
         playerLetter[i].classList.remove('flip')
 
+    }
+    for (let oneLetter of letterBTNEL) {
+        oneLetter.classList.remove('green')
+        oneLetter.classList.remove('gray')
+        oneLetter.classList.remove('orange')
+    }
+    for (let oneLetter of ArbLetterBtnEl) {
+        oneLetter.classList.remove('green')
+        oneLetter.classList.remove('gray')
+        oneLetter.classList.remove('orange')
     }
     for (let i = playerLetter.length - 1; i >= 0; i--) {
         playerLetter[i].textContent = ''
@@ -155,8 +177,19 @@ function selectModrate() {
     for (let i = 0; i < playerLetter.length; i++) {
         playerLetter[i].classList.remove('green')
         playerLetter[i].classList.remove('orange')
+        playerLetter[i].classList.remove('gray')
         playerLetter[i].classList.remove('flip')
 
+    }
+    for (let oneLetter of letterBTNEL) {
+        oneLetter.classList.remove('green')
+        oneLetter.classList.remove('gray')
+        oneLetter.classList.remove('orange')
+    }
+    for (let oneLetter of ArbLetterBtnEl) {
+        oneLetter.classList.remove('green')
+        oneLetter.classList.remove('gray')
+        oneLetter.classList.remove('orange')
     }
     for (let i = playerLetter.length - 1; i >= 0; i--) {
         playerLetter[i].textContent = ''
@@ -200,6 +233,16 @@ function init() {
     }
     for (let i = playerLetter.length - 1; i >= 0; i--) {
         playerLetter[i].textContent = ''
+    }
+    for (let oneLetter of letterBTNEL) {
+        oneLetter.classList.remove('green')
+        oneLetter.classList.remove('gray')
+        oneLetter.classList.remove('orange')
+    }
+    for (let oneLetter of ArbLetterBtnEl) {
+        oneLetter.classList.remove('green')
+        oneLetter.classList.remove('gray')
+        oneLetter.classList.remove('orange')
     }
     playerWord.splice(0, playerWord.length)
 }
@@ -256,14 +299,29 @@ async function checkWord() {
             if (playerWord[i].toLowerCase() === PickedWord[i] && !gameOver) {
                 playerLetter[i + (round * PickedWord.length)].classList.add('green');
                 playerLetter[i + (round * PickedWord.length)].classList.add('flip');
+                for (let oneLetter of letterBTNEL) {
+                    if (oneLetter.textContent === playerWord[i]) {
+                        oneLetter.classList.add('green')
+                    }
+                }
             }
             else if (PickedWord.includes(playerWord[i].toLowerCase()) && !gameOver) {
                 playerLetter[i + (round * PickedWord.length)].classList.add('orange');
                 playerLetter[i + (round * PickedWord.length)].classList.add('flip');
+                for (let oneLetter of letterBTNEL) {
+                    if (oneLetter.textContent === playerWord[i]) {
+                        oneLetter.classList.add('orange')
+                    }
+                }
             }
             else if (!PickedWord.includes(playerWord[i]) && !gameOver) {
                 playerLetter[i + (round * PickedWord.length)].classList.add('gray');
                 playerLetter[i + (round * PickedWord.length)].classList.add('flip');
+                for (let oneLetter of letterBTNEL) {
+                    if (oneLetter.textContent === playerWord[i]) {
+                        oneLetter.classList.add('gray')
+                    }
+                }
             }
         }
     }
@@ -285,15 +343,30 @@ async function checkWord() {
                 if (playerWord[i] === PickedWord[i] && !gameOver) {
                     lastArr[i + (round * PickedWord.length)].classList.add('green')
                     lastArr[i + (round * PickedWord.length)].classList.add('flip')
+                    for (let oneLetter of ArbLetterBtnEl) {
+                        if (oneLetter.textContent === playerWord[i]) {
+                            oneLetter.classList.add('green')
+                        }
+                    }
                 }
                 else if (PickedWord.includes(playerWord[i]) && !gameOver) {
                     lastArr[i + (round * PickedWord.length)].classList.add('orange')
                     lastArr[i + (round * PickedWord.length)].classList.add('flip')
+                    for (let oneLetter of ArbLetterBtnEl) {
+                        if (oneLetter.textContent === playerWord[i]) {
+                            oneLetter.classList.add('orange')
+                        }
+                    }
 
                 }
                 else if (!PickedWord.includes(playerWord[i]) && !gameOver) {
                     lastArr[i + (round * PickedWord.length)].classList.add('gray')
                     lastArr[i + (round * PickedWord.length)].classList.add('flip')
+                    for (let oneLetter of ArbLetterBtnEl) {
+                        if (oneLetter.textContent === playerWord[i]) {
+                            oneLetter.classList.add('gray')
+                        }
+                    }
                 }
             }
         }
@@ -314,14 +387,29 @@ async function checkWord() {
                 if (playerWord[i] === PickedWord[i] && !gameOver) {
                     lastArr[i + (round * PickedWord.length)].classList.add('green')
                     lastArr[i + (round * PickedWord.length)].classList.add('flip')
+                    for (let oneLetter of ArbLetterBtnEl) {
+                        if (oneLetter.textContent === playerWord[i]) {
+                            oneLetter.classList.add('green')
+                        }
+                    }
                 }
                 else if (PickedWord.includes(playerWord[i]) && !gameOver) {
                     lastArr[i + (round * PickedWord.length)].classList.add('orange')
                     lastArr[i + (round * PickedWord.length)].classList.add('flip')
+                    for (let oneLetter of ArbLetterBtnEl) {
+                        if (oneLetter.textContent === playerWord[i]) {
+                            oneLetter.classList.add('orange')
+                        }
+                    }
                 }
                 else if (!PickedWord.includes(playerWord[i]) && !gameOver) {
                     lastArr[i + (round * PickedWord.length)].classList.add('gray')
                     lastArr[i + (round * PickedWord.length)].classList.add('flip')
+                    for (let oneLetter of ArbLetterBtnEl) {
+                        if (oneLetter.textContent === playerWord[i]) {
+                            oneLetter.classList.add('gray')
+                        }
+                    }
                 }
             }
         }
@@ -342,15 +430,30 @@ async function checkWord() {
                 if (playerWord[i] === PickedWord[i] && !gameOver) {
                     lastArr[i + (round * PickedWord.length)].classList.add('green')
                     lastArr[i + (round * PickedWord.length)].classList.add('flip')
+                    for (let oneLetter of ArbLetterBtnEl) {
+                        if (oneLetter.textContent === playerWord[i]) {
+                            oneLetter.classList.add('green')
+                        }
+                    }
                 }
                 else if (PickedWord.includes(playerWord[i]) && !gameOver) {
                     lastArr[i + (round * PickedWord.length)].classList.add('orange')
                     lastArr[i + (round * PickedWord.length)].classList.add('flip')
+                    for (let oneLetter of ArbLetterBtnEl) {
+                        if (oneLetter.textContent === playerWord[i]) {
+                            oneLetter.classList.add('orange')
+                        }
+                    }
                 }
                 else if (!PickedWord.includes(playerWord[i]) && !gameOver) {
                     lastArr[i + (round * PickedWord.length)].classList.add('gray')
                     lastArr[i + (round * PickedWord.length)].classList.add('flip')
-                    
+                    for (let oneLetter of ArbLetterBtnEl) {
+                        if (oneLetter.textContent === playerWord[i]) {
+                            oneLetter.classList.add('gray')
+                        }
+                    }
+
                 }
             }
         }
